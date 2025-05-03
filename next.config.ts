@@ -1,7 +1,26 @@
-import type { NextConfig } from "next";
+import createMDX from "@next/mdx";
+import remarkLivecodes from "remark-livecodes";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const nextConfig = {
+  output: "export",
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  turbopack: {
+    resolveExtensions: [".mdx", ".tsx", ".ts", ".jsx", ".js", ".mjs", ".json"],
+  },
 };
 
-export default nextConfig;
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [
+      [
+        remarkLivecodes,
+        {
+          appUrl: "https://dev.livecodes.io",
+        },
+      ],
+    ],
+  },
+});
+
+// @ts-expect-error export
+export default withMDX(nextConfig);
