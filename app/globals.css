@@ -40,3 +40,9 @@ a {
     color-scheme: dark;
   }
 }
+
+.playground {
+  max-width: 800px;
+  margin: 2rem auto;
+  display: block;
+}
