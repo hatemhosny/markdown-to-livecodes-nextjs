@@ -15,7 +15,7 @@ const withMDX = createMDX({
       [
         remarkLivecodes,
         {
-          appUrl: "https://dev.livecodes.io",
+          /* options */
         },
       ],
     ],
